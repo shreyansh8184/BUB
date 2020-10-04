@@ -21,10 +21,7 @@ async def screenshot(client, message):
 
 @app.on_callback_query()
 async def answer(client, callback_query):
-     if callback_query.data == "Deposit":
-         await callback_query.edit_message_text(DEPOSIT)
-     if callback_query.data == "Report":
-          await callback_query.edit_message_text(REPORT)
+          await callback_query.edit_message_text(callback_query.data)
 
 @app.on_message(filters.incoming & filters.text)
 async def msg(client, message):
