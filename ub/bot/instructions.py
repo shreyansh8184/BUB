@@ -21,7 +21,7 @@ async def screenshot(client, message):
 
 @app.on_callback_query()
 async def answer(client, callback_query):
-          await callback_query.edit_message_text(callback_query.text)
+          await callback_query.edit_message_text(callback_query.message)
 
 @app.on_message(filters.incoming & filters.text)
 async def msg(client, message):
