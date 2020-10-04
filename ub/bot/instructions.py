@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import CallbackQuery
 
-from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT)
+from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASE, REPORT)
 
 @app.on_message(filters.command("start"))
 async def start(client, message):
@@ -21,9 +21,16 @@ async def screenshot(client, message):
 
 @app.on_callback_query()
 async def answer(client, callback_query):
-     await callback_query.edit_message_text(DEPOSIT)
+     if callback_query.data == "Deposit":
+         await callback_query.edit_message_text(DEPOSIT)
+     if callback_query.data == "Realese":
+          await callback_query.edit_message_text(REALEASE)
+     if callback_query.data == "Report":
+          await callback_query.edit_message_text(REPORT)
 
 @app.on_message(filters.incoming & filters.text)
 async def msg(client, message):
-    await message.reply(NOTED)
+    text = message.text
+    if text.startswith("@"):
+       await message.reply(NOTED)
 
