@@ -33,7 +33,7 @@ async def screenshot(client, message):
 
 @app.on_callback_query()
 async def answer(client, callback_query):
-          await callback_query.edit_message_text(DEPOSIT)
+          await callback_query.edit_message_text("hi")
 
 
 
