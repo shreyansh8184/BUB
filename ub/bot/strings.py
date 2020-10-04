@@ -1,10 +1,7 @@
 
-START_TEXT = f"""
-Hello I Hope You Are Fine. This is Telegram's Official Escrow Bot Made For Safety Against Carders And Scammers.
-"""
+
 
 INFO = """
-
 If you are dealing with a Carder and you want to pay after you have received your product.
 
 You can deposit your money to us until your product has arrived.
