@@ -6,6 +6,18 @@ from pyrogram.types import CallbackQuery
 
 from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASED, REPORT, RELEASED, REPORTED)
 
+@app.on_callback_query()
+async def report(client, callback_query):
+          await callback_query.edit_message_text(REPORT)
+
+@app.on_message(filters.command("report"))
+async def report(client, message):
+    await message.reply(REPORTED)
+
+@app.on_message(filters.command("realese"))
+async def release(client, message):
+    await message.reply(RELEASED)
+
 @app.on_message(filters.command("start"))
 async def start(client, message):
     name = message.from_user['first_name']
@@ -23,9 +35,7 @@ async def screenshot(client, message):
 async def answer(client, callback_query):
           await callback_query.edit_message_text(DEPOSIT)
 
-@app.on_callback_query()
-async def report(client, callback_query):
-          await callback_query.edit_message_text(REPORT)
+
 
 @app.on_message(filters.incoming & filters.text)
 async def msg(client, message):
@@ -33,10 +43,4 @@ async def msg(client, message):
     if text.startswith("@"):
        await message.reply(NOTED)
 
-@app.on_message(filters.command("report"))
-async def report(client, message):
-    await message.reply(REPORTED)
 
-@app.on_message(filters.command("realese"))
-async def release(client, message):
-    await message.reply(RELEASED)
