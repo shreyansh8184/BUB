@@ -7,6 +7,6 @@ from ub.bot import instructions
 if len(sys.argv) not in (1, 3, 4):
     quit(1)
 else:
-    app.run_until_disconnected()
+    app.start()
     LOGGER.info("Your bot is now online.")
-    app.start(bot_token=TOKEN)
+    idle()
