@@ -19,7 +19,7 @@ if sys.version_info[0] < 3 or sys.version_info[1] < 6:
 ENV = bool(os.environ.get("ENV", False))
 
 if ENV:
-    STRING_SESSION = os.environ.get("STRING_SESSION")
+    TOKEN = os.environ.get("TOKEN")
     API_ID = os.environ.get("API_ID")
     API_HASH = os.environ.get("API_HASH")
 else:
@@ -28,9 +28,9 @@ else:
     parser = ConfigParser()
     parser.read("config.ini")
     
-    STRING_SESSION = parser.get("config", "STRING_SESSION")
+    TOKEN = parser.get("config", "TOKEN")
     API_ID = parser.get("config", "API_ID")
     API_HASH = parser.get("config", "API_HASH")
     
     
-app = Client(STRING_SESSION, api_id=API_ID, api_hash=API_HASH)
+app = Client("Bot", bot_token=TOKEN, api_id=API_ID, api_hash=API_HASH)
