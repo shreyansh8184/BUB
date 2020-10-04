@@ -19,7 +19,7 @@ async def report(client, callback_query):
 async def rep(client, message):
     await message.reply(REPORTED)
 
-@app.on_message(filters.command("realese"))
+@app.on_message(filters.command("release"))
 async def release(client, message):
     await message.reply(RELEASED)
 
@@ -28,6 +28,7 @@ async def start(client, message):
     name = message.from_user['first_name']
     user_id = message.from_user['id']
     mention = f"[{name}](tg://user?id={user_id})"
+    START_TEXT = START_TEXT = f"Hello {mention} I Hope You Are Fine. This is Telegram's Official Escrow Bot Made For Safety Against Carders And Scammers."
     await message.reply(START_TEXT)
     keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Report", callback_data=r"report")]])
     await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
