@@ -37,11 +37,6 @@ async def start(client, message):
 async def screenshot(client, message):
     await message.reply(MONEY_DEPOSITED)
 
-#@app.on_callback_query()
-#async def answer(client, callback_query):
-          #await callback_query.edit_message_text(DEPOSIT)
-
-
 
 @app.on_message(filters.incoming & filters.text)
 async def msg(client, message):
