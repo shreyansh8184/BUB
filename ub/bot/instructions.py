@@ -12,8 +12,8 @@ async def start(client, message):
     user_id = message.from_user['id']
     mention = f"[{name}](tg://user?id={user_id})"
     await message.reply(START_TEXT)
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer")]])
-    await app.send_message(message.chat.id, INFO, reply_markup=keyboard
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Release", callback_data=r"answer")], InlineKeyboardButton(text="Report", callback_data=r"answer")])
+    await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
 
 @app.on_message(filters.incoming & filters.photo)
 async def screenshot(client, message):
