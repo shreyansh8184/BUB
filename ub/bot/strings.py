@@ -26,3 +26,22 @@ To deposit your money, kindly send username/id of the person you are dealing wit
 
 Bank Details Are As Follows 👇
 """
+
+REPORT = """
+If you have been scammed by someone you can report the user to use. Our team will look into it.
+To report a use use the `/report @username` command.
+"""
+
+REPORTED = """
+This person has been successfully flagged and our team is investigating about him.
+
+Your money will be refunded soon
+"""
+
+NOTED = """
+Noted! 
+
+Deposit the amount and screenshot of your transaction.
+
+After you have received your product, click on /release to release the payment to the carder.
+"""
