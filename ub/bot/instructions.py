@@ -11,7 +11,7 @@ async def report(client, callback_query):
           await callback_query.edit_message_text(REPORT)
 
 @app.on_message(filters.command("report"))
-async def report(client, message):
+async def rep(client, message):
     await message.reply(REPORTED)
 
 @app.on_message(filters.command("realese"))
