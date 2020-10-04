@@ -10,8 +10,8 @@
       "description": "Get this value from my.telegram.org.",
       "required": true
     },
-    "STRING_SESSION": {
-      "description": "Go here https://GenerateStringSession.SpEcHIDe.repl.run and enter p when asked.",
+    "TOKEN": {
+      "description": "Token from @BotFather.",
       "required": true
     },
     "ENV": {
