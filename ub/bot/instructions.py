@@ -3,21 +3,15 @@ from pyrogram import filters
 
 from ub.bot.strings import (PAYMENT_DETAILS, HOW, COD, FORMAT)
 
-@app.on_message(filters.me & filters.command(["payment"], "."))
-async def payment(client, message):
-    await message.edit(PAYMENT_DETAILS)
+@app.on_message(filters.command("start"))
+async def start(client, message):
+    name = message.from_user['first_name']
+    user_id = message.from_user['id']
+    mention =  [{name}](tg://user?id={user_id})
+    await message.reply(START_TEXT)
+    await app.send_message(message.chat_id, INFO)
 
-@app.on_message(filters.me & filters.command(["how"], "."))
-async def how(client, message):
-    await message.edit(HOW)
-
-@app.on_message(filters.me & filters.command(["cod"], "."))
-async def cod(client, message):
-    await message.edit(COD)
-
-@app.on_message(filters.me & filters.command(["format"], "."))
-async def format(client, message):
-    await message.edit(FORMAT)
-
-
+@app.on_message(filters.incoming & filters.photo)
+async def screenshot(client, message):
+    await message.reply(MONEY_DEPOSITED)
 
