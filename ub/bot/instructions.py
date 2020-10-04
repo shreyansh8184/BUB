@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import CallbackQuery
 
-from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASE, REPORT)
+from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASED, REPORT, RELEASED, REPORTED)
 
 @app.on_message(filters.command("start"))
 async def start(client, message):
@@ -12,7 +12,7 @@ async def start(client, message):
     user_id = message.from_user['id']
     mention = f"[{name}](tg://user?id={user_id})"
     await message.reply(START_TEXT)
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Release", callback_data=r"answer")], InlineKeyboardButton(text="Report", callback_data=r"answer")])
+    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Report", callback_data=r"answer")]])
     await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
 
 @app.on_message(filters.incoming & filters.photo)
@@ -23,8 +23,6 @@ async def screenshot(client, message):
 async def answer(client, callback_query):
      if callback_query.data == "Deposit":
          await callback_query.edit_message_text(DEPOSIT)
-     if callback_query.data == "Realese":
-          await callback_query.edit_message_text(REALEASE)
      if callback_query.data == "Report":
           await callback_query.edit_message_text(REPORT)
 
@@ -34,3 +32,10 @@ async def msg(client, message):
     if text.startswith("@"):
        await message.reply(NOTED)
 
+@app.on_message(filters.command("report"))
+async def report(client, message):
+    await message.reply(REPORTED)
+
+@app.on_message(filters.command("realese"))
+async def release(client, message):
+    await message.reply(RELEASED)
