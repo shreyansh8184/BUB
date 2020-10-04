@@ -6,10 +6,6 @@ from pyrogram.types import CallbackQuery
 
 from ub.bot.strings import (START_TEXT, INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASED, REPORT, RELEASED, REPORTED)
 
-@app.on_callback_query()
-async def report(client, callback_query):
-          await callback_query.edit_message_text(REPORT)
-
 @app.on_message(filters.command("report"))
 async def rep(client, message):
     await message.reply(REPORTED)
