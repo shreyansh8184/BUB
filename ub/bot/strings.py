@@ -1,6 +1,6 @@
 
 START_TEXT = f"""
-Hello {mention} I Hope You Are Fine. This is Telegram's Official Escrow Bot Made For Safety Against Carders And Scammers.
+Hello I Hope You Are Fine. This is Telegram's Official Escrow Bot Made For Safety Against Carders And Scammers.
 """
 
 INFO = """
