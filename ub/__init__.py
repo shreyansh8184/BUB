@@ -2,7 +2,7 @@ import os
 import sys
 import logging
 
-from pyrogram import Client
+from telethon import TelegramClient
 
 # Enable logging
 logging.basicConfig(
@@ -33,4 +33,4 @@ else:
     API_HASH = parser.get("config", "API_HASH")
     
     
-app = Client("Bot", bot_token=TOKEN, api_id=API_ID, api_hash=API_HASH)
+app = TelegramClient("Bot", API_ID, API_HASH)
