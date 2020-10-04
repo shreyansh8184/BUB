@@ -46,6 +46,6 @@ Deposit the amount and screenshot of your transaction.
 After you have received your product, click on /release to release the payment to the carder.
 """
 
-REALESED = """
+RELEASED = """
 The Amount has been successfully sent to the carder.
 """
