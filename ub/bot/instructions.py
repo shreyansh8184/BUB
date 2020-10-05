@@ -33,17 +33,6 @@ async def start(client, message):
     #keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Report", callback_data=r"report")]])
     #await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
 
-@app.on_message(filters.incoming & filters.photo)
-async def screenshot(client, message):
-    await message.reply(MONEY_DEPOSITED)
-
-
-@app.on_message(filters.incoming & filters.text)
-async def msg(client, message):
-    text = message.text
-    if text.startswith("@"):
-       await message.reply(NOTED)
-
 
 @app.on_message(filters.command("help"))
 async def help(client, message):
@@ -57,3 +46,15 @@ async def commands(client, message):
 @app.on_message(filters.command("deposit"))
 async def deposit(client, message):
     await message.reply(DEPOSIT)
+
+@app.on_message(filters.incoming & filters.photo)
+async def screenshot(client, message):
+    await message.reply(MONEY_DEPOSITED)
+
+
+@app.on_message(filters.incoming & filters.text)
+async def msg(client, message):
+    text = message.text
+    if text.startswith("@"):
+       await message.reply(NOTED)
+
