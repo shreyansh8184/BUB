@@ -4,7 +4,7 @@ from pyrogram.types import InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardButton
 from pyrogram.types import CallbackQuery
 
-from ub.bot.strings import (INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASED, REPORT, RELEASED, REPORTED)
+from ub.bot.strings import (INFO, MONEY_DEPOSITED, NOTED, DEPOSIT, RELEASED, REPORT, RELEASED, REPORTED, COMMANDS, HELP)
 
 @app.on_callback_query()
 async def report(client, callback_query):
@@ -28,10 +28,10 @@ async def start(client, message):
     name = message.from_user['first_name']
     user_id = message.from_user['id']
     mention = f"[{name}](tg://user?id={user_id})"
-    START_TEXT = START_TEXT = f"Hello {mention} I Hope You Are Fine. This is Telegram's Official Escrow Bot Made For Safety Against Carders And Scammers."
+    START_TEXT = "✅ The easiest and simplest way for not getting scammed by any carder. How to use?\nClick on /help to know more."
     await message.reply(START_TEXT)
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Report", callback_data=r"report")]])
-    await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
+    #keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="Deposit", callback_data=r"answer"), InlineKeyboardButton(text="Report", callback_data=r"report")]])
+    #await app.send_message(message.chat.id, INFO, reply_markup=keyboard)
 
 @app.on_message(filters.incoming & filters.photo)
 async def screenshot(client, message):
@@ -45,3 +45,11 @@ async def msg(client, message):
        await message.reply(NOTED)
 
 
+@app.on_message(filters.command("help"))
+async def help(client, message):
+    await message.reply(INFO)
+    await message.reply(HELP)
+
+@app.on_message(filters.command("commands"))
+async def commands(client, message):
+    await message.reply(COMMANDS)
