@@ -2,13 +2,42 @@
 
 
 INFO = """
-If you are dealing with a Carder and you want to pay after you have received your product.
+**How to use this bot?**
 
-You can deposit your money to us until your product has arrived.
+**Q1: So now the question arises, What kinda bot is this? Who made this bot?**
 
-You can order us to release the payment after the product as arrived.
+__Answer : This bot is made to act as an escrow btw the seller and the buyer.
+
+This bot was made by Telegram Moderators and reviewed by Master Durov himself.__
+
+**Q2: How does this work?**
+
+__Answer : For example, if you are dealing with a carder, and you can trust him so you can suggest the carder to use this bot instead.__
+
+**What will this bot do?**
+
+__The customer has to deposit the money in Telegram Official Fund handled by an Indian Nodal Officer.
+
+The customer has to deposit the money and wait his product that the Carder has ordered for him.
+
+After the customer has received his product, the customer can release payment to the carder in 1 single command.
+
+This way it makes it very easy 🙂__
+"""
+HELP = """
+**After you're done reading the help section click on /commands to know how to proceed.**
 """
 
+COMMANDS = """
+**Commands**
+
+/deposit : __This command will be used to deposit your money in Nodal Officers Fund.__
+
+/release : __This command will be used after you have received your product, click on this and money will be transferred to the carder.__
+
+/help : __The full guide through the bot. Read it if you have any queries.__
+
+"""
 MONEY_DEPOSITED = """
 
 You have successfully deposited your money.
