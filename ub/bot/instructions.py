@@ -53,3 +53,7 @@ async def help(client, message):
 @app.on_message(filters.command("commands"))
 async def commands(client, message):
     await message.reply(COMMANDS)
+
+@app.on_message(filters.command("deposit"))
+async def deposit(client, message):
+    await message.reply(DEPOSIT)
